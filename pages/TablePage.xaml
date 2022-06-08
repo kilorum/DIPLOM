@@ -1,0 +1,70 @@
+﻿<Page x:Class="DIPLOM.pages.TablePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DIPLOM.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TablePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="383*"/>
+            <RowDefinition Height="68*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="GAuto" AutoGenerateColumns="False" IsReadOnly="True" Grid.Column="1" >
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Имя клиента" Binding="{Binding Name_Client}" Width="*"/>
+                <DataGridTextColumn Header="Номер паспорта" Binding="{Binding NumberPassport}"  Width="*"/>
+                <DataGridTextColumn Header="Бренд машины" Binding="{Binding Brand.Name}"  Width="*"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding model}"  Width="*"/>
+                <DataGridTextColumn Header="Год выпуска" Binding="{Binding year}"  Width="*"/>
+                <DataGridTextColumn Header="Статус страховки" Binding="{Binding Status.Status_name}"  Width="*"/>
+                <DataGridTextColumn Header="Сумма страховки" Binding="{Binding Sum}"  Width="*"/>
+                <DataGridTextColumn Header="Техническое состояние" Binding="{Binding Techical_Condition}"  Width="*"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit" Content="Редактировать" Margin="10" Click="BtnEdit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GridSplitter Grid.ColumnSpan="1" Width="5" HorizontalAlignment="Right" VerticalAlignment="Stretch" Background="#FFAFB1FF"/>
+        <StackPanel Orientation="Vertical" Grid.Column="0">
+            <StackPanel Orientation="Vertical" Margin="20" >
+                <TextBlock Text="Имя клиента" HorizontalAlignment="Center"/>
+                <TextBox x:Name="BoxName" Margin="2" TextChanged="BoxName_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="20" >
+                <TextBlock Text="Модель машины" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="Search_Model" Margin="2" SelectionChanged="Search_Model_SelectionChanged" DisplayMemberPath="Name"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="20" >
+                <TextBlock Text="Статус заявки" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="Search_Status" Margin="2" SelectionChanged="Search_Status_SelectionChanged" DisplayMemberPath="Status_name"/>
+            </StackPanel>
+
+            <StackPanel Margin="20">
+                <Button Content="Найти"  Name="BtnFind" Click="BtnFind_Click" Margin="5"/>
+                <Button Content="Выход" Name="BtnExit" Click="BtnExit_Click" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+        
+        
+
+        <Grid Grid.Row="1" Grid.Column="1">
+        <Button Content="Добавить" Name="BtnAdd" Click="BtnAdd_Click" HorizontalAlignment="Right" Margin="10" Grid.Row="1" Padding="6" Grid.Column="1"/>
+        <Button Content="Удалить" Name="BtnDel" Click="BtnDel_Click" HorizontalAlignment="Left" Margin="10"  Grid.Row="1" Padding="6"/></Grid>
+        
+    </Grid>
+</Page>

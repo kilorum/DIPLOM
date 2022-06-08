@@ -1,0 +1,31 @@
+﻿<Page x:Class="DIPLOM.General"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DIPLOM"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="General">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="73*"/>
+            
+            <RowDefinition Height="345*"/>
+        </Grid.RowDefinitions>
+        
+<Image Source="/Resources/pngwing.com.retro.png" HorizontalAlignment="Left" Margin="10" Grid.Row="0" />
+        <TextBlock Text="SaveAuto" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontFamily="Magneto" Foreground="#FF4C3159" TextDecorations="Underline" />
+        
+        <Grid Background="#FFAFB1FF" Panel.ZIndex="-1" Grid.Row="0"/>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="21*"/>
+              
+            </Grid.ColumnDefinitions>
+            <Frame x:Name="GeneralFrame" Grid.Column="1" NavigationUIVisibility="Hidden" />
+          
+        </Grid>
+    </Grid>
+</Page>
